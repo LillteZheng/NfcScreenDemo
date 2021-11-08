@@ -1,2 +1,0 @@
-# NfcScreenDemo
-Screen nfc

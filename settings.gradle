@@ -1,0 +1,26 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+
+
+        google()
+        mavenCentral()
+        maven { url "http://mvn.gz.cvte.cn/nexus/content/repositories/releases/"
+            allowInsecureProtocol = true}
+        maven { url "http://mvn.gz.cvte.cn/nexus/content/repositories/snapshots/"
+            allowInsecureProtocol = true}
+        maven { url "http://mvn.gz.cvte.cn/nexus/content/repositories/android_snapshots/"
+            allowInsecureProtocol = true}
+        maven { url "http://mvn.gz.cvte.cn/nexus/content/repositories/android_releases/"
+            allowInsecureProtocol = true}
+        maven { url 'http://artifactory.gz.cvte.cn:80/artifactory/mvn-snapshots'
+            allowInsecureProtocol = true}
+        maven { url 'http://artifactory.gz.cvte.cn:80/artifactory/mvn-releases'
+            allowInsecureProtocol = true}
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/'
+            allowInsecureProtocol = true}
+       // jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "NfcDemo"
+include ':app'
