@@ -27,15 +27,35 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         NfcApi.getScreenNfc().makeActivityEnableForeground(this)
-        //NfcApi.getScreenNfc().config("https://r302.c/e1r2Xrz","com.seewo.cn",null);
+        NfcApi.getScreenNfc().config("https://cowork.maxhub.com","com.seewo.cn",null);
         initRecycleView()
-        readNfc(intent)
+       // readNfc(intent)
 
     }
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         readNfc(intent)
+        //writeNfc(intent)
+    }
+
+    private fun writeNfc(intent: Intent?){
+        intent?.let {
+            if (NfcApi.getScreenNfc().isIntentSupportNfc(it)){
+                var bean = NfcBean()
+                bean.ssid = "sfsdf"
+                NfcApi.getScreenNfc().writeNfc(intent,bean,object:INfcWriteListener{
+                    override fun onFail(p0: NfcErrorCode?, p1: String?) {
+                        Log.d(TAG, "zsr onFail: ")
+                    }
+
+                    override fun onSuccess() {
+                        Log.d(TAG, "zsr onSuccess: ")
+                    }
+
+                })
+            }
+        }
     }
     private fun readNfc(intent: Intent?){
         datas.clear()
@@ -44,6 +64,7 @@ class MainActivity : AppCompatActivity() {
                 NfcApi.getScreenNfc().readNfc(it, object : INfcReadListener {
                     override fun onFail(code: NfcErrorCode?, errorMsg: String?) {
                         runOnUiThread {
+                            datas.clear()
                             Log.d(TAG, "zsr onFail: $code,$errorMsg")
                             datas.add(CardBean("Ssid: ", ""))
                             datas.add(CardBean("password: ", ""))
@@ -86,6 +107,11 @@ class MainActivity : AppCompatActivity() {
                                 card_recy.adapter?.notifyDataSetChanged()
                             }
                         }
+                    }
+
+                    override fun onLog(log: String?) {
+                        super.onLog(log)
+                        Log.d(TAG, "zsr onLog: $log")
                     }
 
                 })

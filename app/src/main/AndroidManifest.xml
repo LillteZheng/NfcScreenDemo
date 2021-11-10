@@ -19,28 +19,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data
-                    android:scheme="https"
-                    android:host="excshare.com"
-                    />
-                <data
-                    android:scheme="https"
-                    android:host="maxhub.com"
-                    />
-                <!--教育-->
-                <data
-                    android:scheme="https"
-                    android:host="r302.c/e1r2Xrz"
-                    tools:ignore="AppLinkUrlError" />
-                <!--教育-->
-                <data
-                    android:scheme="https"
-                    android:host="cowork.maxhub.com"
-                    />
-            </intent-filter>
         </activity>
     </application>
 
