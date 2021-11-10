@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.zhengsr.nfcdemo">
     <uses-permission android:name="android.permission.NFC" />
     <application
@@ -28,6 +29,16 @@
                 <data
                     android:scheme="https"
                     android:host="maxhub.com"
+                    />
+                <!--教育-->
+                <data
+                    android:scheme="https"
+                    android:host="r302.c/e1r2Xrz"
+                    tools:ignore="AppLinkUrlError" />
+                <!--教育-->
+                <data
+                    android:scheme="https"
+                    android:host="cowork.maxhub.com"
                     />
             </intent-filter>
         </activity>
