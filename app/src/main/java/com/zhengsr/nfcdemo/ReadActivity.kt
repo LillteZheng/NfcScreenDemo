@@ -74,7 +74,7 @@ class ReadActivity : AppCompatActivity() {
 
                                 datas.add(CardBean("downloadUrl: ",url))
                                 if (!pkgLists.isNullOrEmpty()) {
-                                    datas.add(CardBean("packageName: ",pkgLists[0]))
+                                    datas.add(CardBean("packageName:",pkgLists[0]))
                                 }
                                 card_recy.adapter?.notifyDataSetChanged()
                             }
